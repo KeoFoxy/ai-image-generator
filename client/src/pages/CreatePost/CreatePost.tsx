@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { preview } from '../../assets';
@@ -18,9 +18,14 @@ const CreatePost = () => {
 
     const handleSubmit = () => {}
 
-    const handleChange = (e: any) => {}
+    const handleChange = (e: any) => {
+      setForm({...form, [e.targer.name]: e.targer.value});
+    }
 
-    const handleSurpriseMe = () => {}
+    const handleSurpriseMe = () => {
+      const randomPrompt = getRandomPrompt(form.prompt);
+      setForm({...form, prompt: randomPrompt})
+    }
 
     const generateImage = () => {}
 
